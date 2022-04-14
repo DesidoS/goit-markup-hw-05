@@ -16,6 +16,8 @@
   --social-network: #AFB1B8;
   --contact-text-color:rgba(255, 255, 255, 0.6);
   --social-network-bcg:rgba(255, 255, 255, 0.1);
+  --doing-bcg:rgba(47, 48, 58, 0.8);
+  --project-bcg:rgba(33, 150, 243, 0.9);
 }
 /* ------------------------------------------- */
 /* Сброс стилей */
@@ -115,9 +117,13 @@ body {
   line-height: 1.14;
 }
 .link-list .link:hover,
-.link-list .link:focus,
+.link-list .link:focus {
+  color: var(--link-hover-color);
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
 .nav-list .current {
-  color: var(--link-hover-color); 
+  color: var(--link-hover-color);
 }
 .contact {
   margin-left: auto;
@@ -170,6 +176,8 @@ body {
 .first button:hover,
 .first button:focus {
   background-color: var(--background-color-hover);
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* Section one */
 /* ------------------------------------------- */
@@ -220,6 +228,25 @@ body {
 }
 .doing-item:not(:last-child) {
   margin-right: 30px;
+}
+.doing-tit {
+  display: block;
+  font-weight: 700;
+  line-height: 1.14;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--white-text-color);
+}
+.doing-thumb {
+  position: relative;
+}
+.doing-caption {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+  background-color: var(--doing-bcg);
+  padding-top: 27px;
 }
 /* Section three */
 /* ------------------------------------------- */
@@ -294,6 +321,8 @@ box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
 .social-item .link:focus {
   background-color: var(--link-hover-color);
   fill: #FFFFFF;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* Section four */
 /* ------------------------------------------- */
@@ -318,7 +347,9 @@ box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
 .client-item .link:hover,
 .client-item .link:hover {
   fill: var(--link-hover-color);
-    border: 1px solid var(--link-hover-color);
+  border: 1px solid var(--link-hover-color);
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .client-item:not(:last-child) {
   margin-right: 30px;
@@ -357,6 +388,8 @@ box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
   background-color: var(--link-hover-color);
   color: var(--white-text-color);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* Filtr */
 /* ------------------------------------------- */
@@ -401,6 +434,33 @@ box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
   0px 4px 4px rgba(0, 0, 0, 0.06),
   1px 4px 6px rgba(0, 0, 0, 0.16);
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.project-thumb {
+  position: relative;
+    overflow: hidden;
+}
+.project-back {
+  position: absolute;
+  padding: 63px 24px;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: var(--project-bcg) ;
+  color: var(--white-text-color);
+  font-size: 18px;
+  line-height: 1.56;
+  opacity: 0;
+  transform: translateY(100%);
+}
+.project-link:hover .project-back,
+.project-link:focus .project-back{
+  opacity: 1;
+  transform: translateY(0);
+  transition: 500ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* Project */
 /* ------------------------------------------- */
@@ -431,6 +491,8 @@ box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
 .basement-contact:hover,
 .basement-contact:focus {
   color: var(--link-hover-color);
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .basement .container {
   display: flex;
@@ -479,6 +541,8 @@ box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
 .basement-social-item .link:focus {
   background-color: var(--link-hover-color);
   fill:var(--white-text-color);
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* Footer */
 /* ------------------------------------------- */
