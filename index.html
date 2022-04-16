@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <header class="header">
+    <header class="header section">
       <div class="container container-header">
         <nav class="nav-item">
           <a href="./index.html" class="header-logo logo"
@@ -58,9 +58,9 @@
       </div>
     </header>
     <main>
-      <section class="container first">
+      <section class="section first">
         <h1>Эффективные решения для вашего бизнеса</h1>
-        <button type="button">Заказать услугу</button>
+        <button data-modal-open type="button">Заказать услугу</button>
       </section>
       <section class="section peculiarities">
         <div class="container">
@@ -378,7 +378,7 @@
         </ul>
       </section>
     </main>
-    <footer class="basement">
+    <footer class="basement section">
       <div class="container">
         <div class="first-basement">
           <a href="./index.html" class="logo"
@@ -441,6 +441,15 @@
         </div>
       </div>
     </footer>
-    <script src="./js/modal.js"></script>
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <button data-modal-close class="button-close">
+          <svg class="close">
+            <use href="./images/icons.svg#icon-close"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <script src="./modal.js"></script>
   </body>
 </html>

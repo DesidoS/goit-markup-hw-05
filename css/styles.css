@@ -41,6 +41,7 @@ img {
 /* ------------------------------------------- */
 body {
   background-color: var(--white-text-color);
+
   font-family: Roboto, sans-serif;
   letter-spacing: 0.03em;
   color: var(--general-text-color);
@@ -61,7 +62,9 @@ body {
   color: var(--tit-text-color);
 }
 .section {
-  
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
   padding-top: 94px;
   padding-bottom: 94px;
 }
@@ -79,10 +82,8 @@ body {
 /* Hedder */
 .header {
   border-bottom:var(--border-color) solid 1px ;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1600px;
-  
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 .nav-item, 
 .container-header, 
@@ -111,19 +112,31 @@ body {
   display: block;
   padding-top: 32px;
   padding-bottom: 32px;
-
   letter-spacing: 0.02em;
   font-weight: 500;
   line-height: 1.14;
+
+  transition-property: color;  
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .link-list .link:hover,
 .link-list .link:focus {
   color: var(--link-hover-color);
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .nav-list .current {
   color: var(--link-hover-color);
+  position: relative;
+}
+.nav-list .current::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--link-hover-color);
+  border-radius: 2px;
 }
 .contact {
   margin-left: auto;
@@ -138,6 +151,55 @@ body {
   margin-right: 10px;
 }
 /* Hedder */
+/* ------------------------------------------- */
+/* Backdrop */
+.backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+
+  min-width: 528px;
+  min-height: 581px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
+  0px 1px 1px rgba(0, 0, 0, 0.14),
+  0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  background-color: var(--white-text-color);
+}
+.button-close {
+  margin-top: 8px;
+  margin-left: 490px;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  background-color: var(--white-text-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+
+}
+
+.close {
+  justify-content: center;
+  align-items: center;
+  fill: black;
+  width: 11px;
+  height: 11px;
+}
+/* Backdrop */
 /* ------------------------------------------- */
 /* Section one */
 .first {
@@ -172,12 +234,14 @@ body {
   font-size: 16px;
   line-height: 1.88;
   letter-spacing: 0.06em;
+
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .first button:hover,
 .first button:focus {
   background-color: var(--background-color-hover);
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* Section one */
 /* ------------------------------------------- */
@@ -253,9 +317,6 @@ body {
 /* Section four */
 .squad-section{
   background-color: var(--bcg-filtr-color);
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1600px;
 }
 .squad-list {
   display: flex;
@@ -312,6 +373,9 @@ box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
   height: 44px;
   border-radius: 50%;
   fill: var(--social-network)
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .social-item .icon {
   width: 20px;
@@ -321,17 +385,10 @@ box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
 .social-item .link:focus {
   background-color: var(--link-hover-color);
   fill: #FFFFFF;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* Section four */
 /* ------------------------------------------- */
 /* Section five */
-.client {
-  max-width: 1600px;
-  margin-left: auto;
-  margin-right: auto;
-}
 .client-list{
   display: flex;
   justify-content: center;
@@ -343,13 +400,15 @@ box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
   border: 1px solid var(--social-network);
   border-radius: 4px;
   fill: var(--social-network);
+
+    transition-property: fill, border;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .client-item .link:hover,
 .client-item .link:hover {
   fill: var(--link-hover-color);
   border: 1px solid var(--link-hover-color);
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .client-item:not(:last-child) {
   margin-right: 30px;
@@ -382,14 +441,15 @@ box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
   letter-spacing: 0.03em;
   background-color: var(--bcg-filtr-color);
   color: var(--tit-text-color);
+    transition-property: background-color, color, box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .filtr:hover,
 .filtr:focus {
   background-color: var(--link-hover-color);
   color: var(--white-text-color);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* Filtr */
 /* ------------------------------------------- */
@@ -428,30 +488,35 @@ box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
   border-right: var(--border-color) solid 1px;
   border-bottom: var(--border-color) solid 1px;
 }
+.project-link {
+    display: block;
+    transition-property: box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
 .project-link:hover,
 .project-link:focus {
-  display: block;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
   0px 4px 4px rgba(0, 0, 0, 0.06),
   1px 4px 6px rgba(0, 0, 0, 0.16);
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .project-thumb {
   position: relative;
-    overflow: hidden;
+  overflow: hidden;
 }
 .project-back {
   position: absolute;
   padding: 63px 24px;
   top: 0;
-  width: 100%;
-  height: 100%;
 
   background-color: var(--project-bcg) ;
   color: var(--white-text-color);
   font-size: 18px;
   line-height: 1.56;
+
+  transition-property: opacity, transform;
+  transition-duration: 500ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 0;
   transform: translateY(100%);
 }
@@ -459,8 +524,6 @@ box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
 .project-link:focus .project-back{
   opacity: 1;
   transform: translateY(0);
-  transition: 500ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* Project */
 /* ------------------------------------------- */
@@ -471,9 +534,7 @@ box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
   background-color: var(--bg-color-second);
   padding-top: 60px;
   padding-bottom: 60px;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1600px;
+
 }
 .basement-white {
   color: var(--white-text-color);
@@ -487,12 +548,14 @@ box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
 }
 .basement-contact {
   color: var(--contact-text-color);
+      transition-property: color;
+      transition-duration: 250ms;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  
 }
 .basement-contact:hover,
 .basement-contact:focus {
   color: var(--link-hover-color);
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .basement .container {
   display: flex;
@@ -530,6 +593,10 @@ box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
   border-radius: 50%;
   fill: var(--white-text-color);
   background-color:  var(--social-network-bcg);
+
+  transition-property: background-color,fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .basement-social-item .icon {
@@ -541,8 +608,6 @@ box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
 .basement-social-item .link:focus {
   background-color: var(--link-hover-color);
   fill:var(--white-text-color);
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* Footer */
 /* ------------------------------------------- */
